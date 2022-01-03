@@ -7,10 +7,24 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {auth, createUserWithEmailAndPassword} from '../../firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const onSignUpPress = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        console.log('user', user);
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('error', errorCode, errorMessage);
+      });
+  };
 
   const onLoginPress = () => {
     console.log('onLoginPress ');
@@ -40,7 +54,7 @@ const Login = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={onLoginPress}
+          onPress={onSignUpPress}
           style={[styles.button, styles.buttonOutline]}>
           <Text style={[styles.buttonText, styles.buttonTextOutline]}>
             Register
