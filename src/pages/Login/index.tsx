@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {auth, createUserWithEmailAndPassword} from '../../firebase';
+import styles from './styles';
+import { auth, createUserWithEmailAndPassword } from '../../../firebase';
 
-const Login = () => {
+const Index = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -65,48 +65,4 @@ const Login = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inputContainer: {
-    width: '80%',
-  },
-  input: {
-    backgroundColor: 'white',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    marginTop: 5,
-    borderRadius: 5,
-  },
-  buttonContainer: {
-    width: '60%',
-    marginTop: 20,
-  },
-  button: {
-    backgroundColor: '#0782F9',
-    borderRadius: 5,
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    marginBottom: 5,
-  },
-  buttonOutline: {
-    backgroundColor: 'white',
-    borderStyle: 'solid',
-    borderColor: '#0782F9',
-    borderWidth: 1,
-  },
-  buttonText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '700',
-  },
-  buttonTextOutline: {
-    color: '#0782F9',
-  },
-});
-
-export default Login;
+export default Index;
